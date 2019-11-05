@@ -270,7 +270,7 @@ module.exports = function(pc, opts) {
     var isOffer = task.name === 'createOffer';
 
     function fail(err) {
-      tq.apply(tq, [ 'negotiate.error', task.name, err ].concat(task.args));
+      tq.apply(tq, [ 'negotiate.error', task.name, err, err && err.message ].concat(task.args));
       next(err);
     }
 
